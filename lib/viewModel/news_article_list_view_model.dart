@@ -13,6 +13,7 @@ class NewsArticleListViewModel with ChangeNotifier {
   void topHeadlines() async {
     loadingState=LoadingState.searching;
     List<NewsArticle> _newsArticles = await WebServices().fetchTopHeadlines();
+    notifyListeners();
     this.articleList = _newsArticles
         .map((article) => NewsArticleViewModel(article: article))
         .toList();

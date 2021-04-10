@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm/home.dart';
+import 'package:flutter_mvvm/screens/news_screen.dart';
+import 'package:flutter_mvvm/viewModel/news_article_list_view_model.dart';
+import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -10,7 +13,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'MVVM News-App'),
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => NewsArticleListViewModel()),
+        ],
+        child: NewsScreen(),
+      ),
     );
   }
 }

@@ -5,9 +5,6 @@ class NewsArticleViewModel {
 
   NewsArticleViewModel({NewsArticle article}) : _newsArticle = article;
 
-  String get d {
-    return _newsArticle.url;
-  }
 
   String get url {
     return _newsArticle.url;
