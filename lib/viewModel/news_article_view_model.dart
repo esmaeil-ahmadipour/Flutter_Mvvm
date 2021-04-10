@@ -1,4 +1,5 @@
 import 'package:flutter_mvvm/models/news_article.dart';
+import 'package:intl/intl.dart';
 
 class NewsArticleViewModel {
   NewsArticle _newsArticle;
@@ -27,7 +28,8 @@ class NewsArticleViewModel {
   }
 
   String get publishedAt {
-    return _newsArticle.publishedAt;
+    final dateTime =DateFormat('yyyy-mm-ddTHH:mm:ssZ').parse(_newsArticle.publishedAt,true);
+    return DateFormat.yMMMMEEEEd('en-us').format(dateTime).toString();
   }
 
   String get urlToImage {
